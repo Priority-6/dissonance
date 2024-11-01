@@ -73,7 +73,7 @@ subprojects {
     }
 
     loom {
-        accessWidenerPath = file("src/main/resources/harmonia.accesswidener")
+        accessWidenerPath = file("src/main/resources/dissonance.accesswidener")
     }
 
     def targetJavaVersion = 17
