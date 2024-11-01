@@ -1,0 +1,8 @@
+{
+	"gui.dissonance.chunkloaded": "Chunkloaded",
+	"gui.dissonance.claim_chunks": "Claim Selection",
+	"gui.dissonance.unclaim_chunks": "Unclaim Selection",
+	"gui.dissonance.admin_unclaim_chunks": "§c(Admin) Unclaim Selection",
+	"gui.dissonance.chunkload_chunks": "Chunkload Selection",
+	"gui.dissonance.unchunkload_chunks": "Unchunkload Selection"
+}

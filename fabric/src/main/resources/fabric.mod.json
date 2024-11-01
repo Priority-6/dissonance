@@ -1,38 +1,29 @@
 {
-  "schemaVersion": 1,
-  "id": "harmonia",
-  "version": "${version}",
-  "name": "Harmonia",
-  "description": "Add compatability between Cadmus and Xaero's Worldmap.",
-  "authors": [
-    "wasabiwhisper"
-  ],
-  "contact": {
-    "repo": "https://github.com/wasabiwhisper/harmonia"
-  },
-  "license": "MIT",
-  "icon": "assets/harmonia/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "dev.wasabiwhisper.harmonia.fabric.HarmoniaFabric"
-    ],
-    "client": [
-      "dev.wasabiwhisper.harmonia.fabric.client.HarmoniaFabricClient"
-    ]
-  },
-  "mixins": [
-    "harmonia-fabric.mixins.json",
-    "harmonia-common.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=${loader_version}",
-    "fabric": "*",
-    "minecraft": "${minecraft_version}",
-    "cadmus": ">=${cadmus_version}",
-    "resourcefullib": ">=${resourceful_lib_version}"
-  },
-  "suggests": {
-    "xaeroworldmap": ">=${xaeros_world_map_version}"
-  }
+	"schemaVersion": 1,
+	"id": "dissonance",
+	"version": "${version}",
+	"name": "Dissonance",
+	"description": "Add compatability between Cadmus and Xaero's Worldmap.",
+	"authors": ["hjota"],
+	"contact": {
+		"repo": "https://github.com/hjota/dissonance"
+	},
+	"license": "MIT",
+	"icon": "assets/dissonance/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": ["dev.hjota.dissonance.fabric.DissonanceFabric"],
+		"client": ["dev.hjota.dissonance.fabric.client.DissonanceFabricClient"]
+	},
+	"mixins": ["dissonance-fabric.mixins.json", "dissonance-common.mixins.json"],
+	"depends": {
+		"fabricloader": ">=${loader_version}",
+		"fabric": "*",
+		"minecraft": "${minecraft_version}",
+		"cadmus": ">=${cadmus_version}",
+		"resourcefullib": ">=${resourceful_lib_version}"
+	},
+	"suggests": {
+		"xaeroworldmap": ">=${xaeros_world_map_version}"
+	}
 }
