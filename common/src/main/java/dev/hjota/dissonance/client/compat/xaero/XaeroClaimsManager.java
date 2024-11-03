@@ -1,7 +1,7 @@
 package dev.hjota.dissonance.client.compat.xaero;
 
+import dev.hjota.dissonance.claims.ClaimType;
 import dev.hjota.dissonance.client.ClientClaims;
-import earth.terrarium.cadmus.common.claims.ClaimType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.resources.ResourceKey;
@@ -33,7 +33,7 @@ public class XaeroClaimsManager {
     }
 
     public void changeSelection(ResourceKey<Level> dimension, int left, int top, int right, int bottom, boolean claim,
-            @Nullable ClaimType type, boolean admin) {
+    @Nullable ClaimType type, boolean admin) {
         Map<ChunkPos, ClaimType> addedChunks = new HashMap<>();
         Map<ChunkPos, ClaimType> removedChunks = new HashMap<>();
         for (int x = left; x <= right; ++x) {

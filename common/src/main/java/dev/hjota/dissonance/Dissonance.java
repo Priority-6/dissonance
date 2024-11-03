@@ -1,5 +1,6 @@
 package dev.hjota.dissonance;
 
+import dev.ftb.mods.ftbteams.api.event.TeamEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

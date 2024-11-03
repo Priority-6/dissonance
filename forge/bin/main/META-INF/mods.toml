@@ -9,7 +9,7 @@ version = "${version}"
 displayName = "Dissonance"
 authors = "hjota"
 description = '''
-Add compatability between Cadmus and Xaero's Worldmap.
+Add compatability between FTB Chunks and Xaero's Worldmap.
 '''
 logoFile = "icon.png"
 
@@ -27,12 +27,7 @@ versionRange = "[1.20.1,)"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.dissonance]]
-modId = "cadmus"
-mandatory = true
-versionRange = "[${cadmus_version},)"
-ordering = "NONE"
-side = "BOTH"
+# TODO: FTB Chunks
 
 [[dependencies.dissonance]]
 modId = "resourcefullib"

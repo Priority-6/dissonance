@@ -1,9 +1,9 @@
 package dev.hjota.dissonance.client;
 
 import com.mojang.datafixers.util.Pair;
+import dev.ftb.mods.ftbteams.api.event.TeamEvent;
 import dev.hjota.dissonance.claims.ClaimType;
 //import dev.hjota.dissonance.network.messages.ServerboundListenToChunksPacket;
-//import earth.terrarium.cadmus.common.network.NetworkHandler;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
@@ -26,6 +26,7 @@ public final class ClientClaims {
 
     public void addListener(String id, Consumer<Map<ChunkPos, ClientClaims.Entry>> listener) {
         if (this.listeners.isEmpty()) {
+
             this.claims.clear();
 //            NetworkHandler.CHANNEL.sendToServer(new ServerboundListenToChunksPacket(this.dimension, true));
         }

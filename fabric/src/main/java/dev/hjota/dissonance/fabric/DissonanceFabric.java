@@ -14,7 +14,7 @@ public final class DissonanceFabric implements ModInitializer {
         Dissonance.LOGGER.info("-- Dissonance v" + getModInfoVersion() + " --");
     }
 
-    protected String getModInfoVersion() {
+    private String getModInfoVersion() {
         ModContainer modContainer = FabricLoader.getInstance().getModContainer(MOD_ID).get();
         return modContainer.getMetadata().getVersion().getFriendlyString();
     }

@@ -5,7 +5,6 @@ plugins {
 loom {
     forge {
         mixinConfig "dissonance-common.mixins.json"
-        mixinConfig "dissonance-forge.mixins.json"
     }
 }
 
@@ -47,13 +46,11 @@ dependencies {
     // Architectury API. This is optional, and you can comment it out if you don't need it.
     modImplementation "dev.architectury:architectury-forge:$architectury_api_version"
 
-    // Cadmus
-    modImplementation(group: "earth.terrarium.cadmus", name: "cadmus-forge-${minecraft_version}", version: cadmus_version)
-
     // Xaeros
     modCompileOnly("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}_Forge_1.20")
     modLocalRuntime("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}_Forge_1.20")
 
+    // FTB
     modImplementation("dev.ftb.mods:ftb-library-forge:${ftb_library_version}")
     modImplementation("dev.ftb.mods:ftb-teams-forge:${ftb_teams_version}")
     modImplementation("dev.ftb.mods:ftb-chunks-forge:${ftb_chunks_version}")
@@ -65,7 +62,6 @@ dependencies {
 processResources {
     inputs.property "version", version
     inputs.property "minecraft_version", minecraft_version
-    inputs.property "cadmus_version", cadmus_version
     inputs.property "xaeros_world_map_version", xaeros_world_map_version
     inputs.property "resourceful_lib_version", resourceful_lib_version
     filteringCharset "UTF-8"
@@ -73,7 +69,6 @@ processResources {
     filesMatching('META-INF/mods.toml') {
         expand "version": version,
                 "minecraft_version": minecraft_version,
-                "cadmus_version": cadmus_version,
                 "xaeros_world_map_version": xaeros_world_map_version,
                 "resourceful_lib_version": resourceful_lib_version
     }

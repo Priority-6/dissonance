@@ -35,9 +35,6 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:$fabric_loader_version"
     modImplementation "net.fabricmc.fabric-api:fabric-api:$fabric_api_version"
 
-    // Cadmus
-    modImplementation(group: "earth.terrarium.cadmus", name: "cadmus-fabric-${minecraft_version}", version: cadmus_version)
-
     // Xaeros
     modCompileOnly("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}_Fabric_1.20")
     modLocalRuntime("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}_Fabric_1.20")
@@ -50,7 +47,6 @@ processResources {
     inputs.property "version", version
     inputs.property "minecraft_version", minecraft_version
     inputs.property "loader_version", fabric_loader_version
-    inputs.property "cadmus_version", cadmus_version
     inputs.property "xaeros_world_map_version", xaeros_world_map_version
     inputs.property "resourceful_lib_version", resourceful_lib_version
     filteringCharset "UTF-8"

@@ -8,9 +8,9 @@ public class DissonanceClient {
 
     public static void init() {
         try {
-            Class.forName("earth.terrarium.cadmus.Cadmus");
+            Class.forName("dev.ftb.mods.ftbchunks");
         } catch (ClassNotFoundException ignored) {
-            Dissonance.LOGGER.error("Cadmus not found!");
+            Dissonance.LOGGER.error("FTB Chunks not found!");
         }
         try {
             Class.forName("xaero.map.WorldMap");

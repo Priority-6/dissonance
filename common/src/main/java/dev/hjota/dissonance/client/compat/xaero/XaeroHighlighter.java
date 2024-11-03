@@ -1,7 +1,6 @@
 package dev.hjota.dissonance.client.compat.xaero;
 
 import dev.hjota.dissonance.client.ClientClaims;
-import earth.terrarium.cadmus.common.claims.ClaimType;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.ChatFormatting;

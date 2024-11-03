@@ -24,7 +24,7 @@ public class XaeroGuiMapMixin {
     @Inject(method = "getRightClickOptions", at = @At("RETURN"))
     private void getRightClickOptions(CallbackInfoReturnable<ArrayList<RightClickOption>> cir,
             @Local ArrayList<RightClickOption> options) {
-        DissonanceClient.xaeros.addRightClickOptions((GuiMap) (Object) this, options, mapTileSelection, mapProcessor);
+//        DissonanceClient.xaeros.addRightClickOptions((GuiMap) (Object) this, options, mapTileSelection, mapProcessor);
     }
 
 }
