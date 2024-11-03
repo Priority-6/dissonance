@@ -157,12 +157,14 @@ public class XaeroCompat {
                         }
                         boolean isClaimedByPlayer = claim.teamId().equals(ClientClaims.ID);
                         hasClaimed = isClaimedByPlayer || hasClaimed;
-                        hasUnchunkloaded = (isClaimedByPlayer && claim.type() == ClaimType.CLAIMED) || hasUnchunkloaded;
-                        hasChunkloaded = (isClaimedByPlayer && claim.type() == ClaimType.CHUNK_LOADED)
-                                || hasChunkloaded;
+//                        TODO: Chunkloaded
+//                        hasUnchunkloaded = (isClaimedByPlayer && claim.type() == ClaimType.CLAIMED) || hasUnchunkloaded;
+//                        hasChunkloaded = (isClaimedByPlayer && claim.type() == ClaimType.CHUNK_LOADED)
+//                                || hasChunkloaded;
                     }
                 }
-                if (hasUnclaimed && hasClaimed && hasUnchunkloaded && hasChunkloaded) {
+//                if (hasUnclaimed && hasClaimed && hasUnchunkloaded && hasChunkloaded) {
+                if (hasUnclaimed && hasClaimed) {
                     break;
                 }
             }

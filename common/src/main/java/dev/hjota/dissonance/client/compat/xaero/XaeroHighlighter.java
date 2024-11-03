@@ -35,7 +35,8 @@ public class XaeroHighlighter extends ChunkHighlighter {
         ClientClaims.Entry bottomClaim = this.manager.get(dimension, chunkX, chunkZ + 1);
         ClientClaims.Entry leftClaim = this.manager.get(dimension, chunkX - 1, chunkZ);
 
-        int claimColor = currentClaim.type() == ClaimType.CHUNK_LOADED ? 0xFFFF9900 : currentClaim.color();
+//        int claimColor = currentClaim.type() == ClaimType.CHUNK_LOADED ? 0xFFFF9900 : currentClaim.color();
+        int claimColor = currentClaim.color();
         int claimColorFormatted = (claimColor & 255) << 24 | (claimColor >> 8 & 255) << 16
                 | (claimColor >> 16 & 255) << 8;
         int fillOpacity = WorldMap.settings.claimsFillOpacity;
@@ -69,11 +70,12 @@ public class XaeroHighlighter extends ChunkHighlighter {
             return null;
         return claim
                 .name().copy().append(
-                        claim.type() == ClaimType.CHUNK_LOADED
-                                ? Component.literal(" ")
-                                        .append(Component.translatable("gui.dissonance.chunkloaded")
-                                                .withStyle(ChatFormatting.ITALIC, ChatFormatting.GOLD))
-                                : Component.empty());
+//                        claim.type() == ClaimType.CHUNK_LOADED
+//                                ? Component.literal(" ")
+//                                        .append(Component.translatable("gui.dissonance.chunkloaded")
+//                                                .withStyle(ChatFormatting.ITALIC, ChatFormatting.GOLD))
+//                                :
+        Component.empty());
     }
 
     @Override

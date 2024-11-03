@@ -2,8 +2,6 @@ package dev.hjota.dissonance.client.compat.xaero;
 
 import dev.hjota.dissonance.client.ClientClaims;
 import earth.terrarium.cadmus.common.claims.ClaimType;
-import earth.terrarium.cadmus.common.network.NetworkHandler;
-import earth.terrarium.cadmus.common.network.messages.ServerboundUpdateClaimedChunksPacket;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.resources.ResourceKey;
@@ -53,24 +51,23 @@ public class XaeroClaimsManager {
                         // Chunkload
                         case CHUNK_LOADED -> {
                             if (entry != null && entry.teamId().equals(ClientClaims.ID)
-                                    && entry.type() != ClaimType.CHUNK_LOADED)
+//                                    && entry.type() != ClaimType.CHUNK_LOADED)
+                            )
                                 addedChunks.put(new ChunkPos(x, z), type);
                         }
                     }
                 } else {
                     // Unclaim
-                    if (type == null && entry != null && (admin || entry.teamId().equals(ClientClaims.ID))) {
-                        removedChunks.put(new ChunkPos(x, z), entry.type());
-                    }
+//                    if (type == null && entry != null && (admin || entry.teamId().equals(ClientClaims.ID))) {
+////                        removedChunks.put(new ChunkPos(x, z), entry.type());
+//                    }
                     // Unchunkload
                     if (type == ClaimType.CLAIMED && entry != null && entry.teamId().equals(ClientClaims.ID)
-                            && entry.type() == ClaimType.CHUNK_LOADED)
+//                            && entry.type() == ClaimType.CHUNK_LOADED)
+                    )
                         addedChunks.put(new ChunkPos(x, z), type);
                 }
             }
-        }
-        if (!addedChunks.isEmpty() || !removedChunks.isEmpty()) {
-            NetworkHandler.CHANNEL.sendToServer(new ServerboundUpdateClaimedChunksPacket(addedChunks, removedChunks));
         }
     }
 }

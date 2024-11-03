@@ -4,8 +4,6 @@
 	"package": "dev.hjota.dissonance.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"claims.CadmusClaimHandlerMixin",
-		"network.CadmusNetworkHandlerMixin"
 	],
 	"client": [
 		"client.compat.xaero.XaeroGuiMapMixin",
