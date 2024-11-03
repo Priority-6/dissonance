@@ -1,9 +1,8 @@
 package dev.hjota.dissonance.client;
 
 import com.mojang.datafixers.util.Pair;
-import dev.ftb.mods.ftbteams.api.event.TeamEvent;
+
 import dev.hjota.dissonance.claims.ClaimType;
-//import dev.hjota.dissonance.network.messages.ServerboundListenToChunksPacket;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
@@ -16,19 +15,15 @@ import java.util.function.Consumer;
 public final class ClientClaims {
     public static String ID = null;
     public static final Map<ResourceKey<Level>, ClientClaims> CLAIMS = new HashMap<>();
-    private final ResourceKey<Level> dimension;
     private final Map<ChunkPos, ClientClaims.Entry> claims = new HashMap<>();
     private final Map<String, Consumer<Map<ChunkPos, ClientClaims.Entry>>> listeners = new HashMap<>();
 
     public ClientClaims(ResourceKey<Level> dimension) {
-        this.dimension = dimension;
     }
 
     public void addListener(String id, Consumer<Map<ChunkPos, ClientClaims.Entry>> listener) {
         if (this.listeners.isEmpty()) {
-
             this.claims.clear();
-//            NetworkHandler.CHANNEL.sendToServer(new ServerboundListenToChunksPacket(this.dimension, true));
         }
 
         this.listeners.put(id, listener);
@@ -37,7 +32,6 @@ public final class ClientClaims {
     public void removeListener(String id) {
         this.listeners.remove(id);
         if (this.listeners.isEmpty()) {
-//            NetworkHandler.CHANNEL.sendToServer(new ServerboundListenToChunksPacket(this.dimension, false));
             this.claims.clear();
         }
     }

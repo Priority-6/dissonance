@@ -1,24 +1,21 @@
 package dev.hjota.dissonance.client.compat.xaero;
 
-import dev.hjota.dissonance.claims.ClaimType;
+import dev.ftb.mods.ftbteams.api.event.ClientTeamPropertiesChangedEvent;
+import dev.ftb.mods.ftbteams.api.event.TeamEvent;
+import dev.ftb.mods.ftbteams.data.ClientTeamManagerImpl;
 import dev.hjota.dissonance.client.ClientClaims;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import xaero.map.MapProcessor;
 import xaero.map.WorldMapSession;
-import xaero.map.gui.GuiMap;
-import xaero.map.gui.MapTileSelection;
-import xaero.map.gui.dropdown.rightclick.RightClickOption;
 import xaero.map.region.MapRegion;
 import xaero.map.world.MapDimension;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +25,36 @@ public class XaeroCompat {
     public static final XaeroClaimsManager manager = new XaeroClaimsManager();
 
     public XaeroCompat() {
+        TeamEvent.CLIENT_PROPERTIES_CHANGED.register(this::onTeamPropsChanged);
+    }
+
+    private void onTeamPropsChanged(ClientTeamPropertiesChangedEvent event) {
+        // Get team info once upfront to avoid multiple lookups
+        final var teamId = event.getTeam().getId();
+        final var optionalTeam = ClientTeamManagerImpl.getInstance().getTeam(teamId);
+
+        if (optionalTeam.isEmpty())
+            return;
+
+        // Cache team data to avoid repeated access
+        final var team = optionalTeam.get();
+        final var teamIdString = teamId.toString();
+        final var teamName = team.getName();
+        final var teamColor = team.getColor();
+
+        // Create new Entry once instead of for each matching claim
+        manager.map.forEach((dimension, dimensionClaims) -> {
+            boolean updated = false;
+            for (var entry : dimensionClaims.entrySet()) {
+                if (entry.getValue().teamId().equals(teamIdString)) {
+                    entry.setValue(new ClientClaims.Entry(teamName, teamColor, entry.getValue().type(), teamIdString));
+                    updated = true;
+                }
+            }
+            // Only put back if we actually made changes
+            if (updated)
+                manager.put(dimension, dimensionClaims);
+        });
     }
 
     public static void registerListener(ResourceKey<Level> dimension) {
