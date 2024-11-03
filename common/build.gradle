@@ -20,4 +20,9 @@ dependencies {
 
     // Resourceful
     modApi(group: "com.teamresourceful.resourcefullib", name: "resourcefullib-common-${minecraft_version}", version: resourceful_lib_version)
+
+    // FTB
+    modCompileOnly("dev.ftb.mods:ftb-library-fabric:${ftb_library_version}")
+    modCompileOnly("dev.ftb.mods:ftb-teams-fabric:${ftb_teams_version}")
+    modCompileOnly("dev.ftb.mods:ftb-chunks-fabric:${ftb_chunks_version}")
 }

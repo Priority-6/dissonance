@@ -25,7 +25,7 @@ import java.util.Map;
 @Environment(EnvType.CLIENT)
 public class XaeroCompat {
     private static final String LISTENER_ID = "xaeros";
-    private static final XaeroClaimsManager manager = new XaeroClaimsManager();
+    public static final XaeroClaimsManager manager = new XaeroClaimsManager();
 
     public XaeroCompat() {
     }
@@ -43,7 +43,7 @@ public class XaeroCompat {
         }
     }
 
-    private static void update(ResourceKey<Level> dimension, Map<ChunkPos, ClientClaims.Entry> claims) {
+    public static void update(ResourceKey<Level> dimension, Map<ChunkPos, ClientClaims.Entry> claims) {
         if (!Minecraft.getInstance().isSameThread())
             return;
         manager.put(dimension, claims);

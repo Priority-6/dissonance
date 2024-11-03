@@ -54,6 +54,10 @@ dependencies {
     modCompileOnly("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}_Forge_1.20")
     modLocalRuntime("maven.modrinth:xaeros-world-map:${xaeros_world_map_version}_Forge_1.20")
 
+    modImplementation("dev.ftb.mods:ftb-library-forge:${ftb_library_version}")
+    modImplementation("dev.ftb.mods:ftb-teams-forge:${ftb_teams_version}")
+    modImplementation("dev.ftb.mods:ftb-chunks-forge:${ftb_chunks_version}")
+
     // Resourceful
     modApi(group: "com.teamresourceful.resourcefullib", name: "resourcefullib-forge-${minecraft_version}", version: resourceful_lib_version)
 }

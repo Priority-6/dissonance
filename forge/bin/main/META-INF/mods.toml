@@ -1,0 +1,49 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+#issueTrackerURL = ""
+license = "MIT"
+
+[[mods]]
+modId = "dissonance"
+version = "${version}"
+displayName = "Dissonance"
+authors = "hjota"
+description = '''
+Add compatability between Cadmus and Xaero's Worldmap.
+'''
+logoFile = "icon.png"
+
+[[dependencies.dissonance]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.dissonance]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.dissonance]]
+modId = "cadmus"
+mandatory = true
+versionRange = "[${cadmus_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.dissonance]]
+modId = "resourcefullib"
+mandatory = true
+versionRange = "[${resourceful_lib_version},)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.dissonance]]
+modId = "xaeroworldmap"
+mandatory = true
+versionRange = "[${xaeros_world_map_version},)"
+ordering = "NONE"
+side = "CLIENT"

@@ -16,7 +16,7 @@ import java.util.Map;
 
 @Environment(EnvType.CLIENT)
 public class XaeroClaimsManager {
-    private final Map<ResourceKey<Level>, Map<ChunkPos, ClientClaims.Entry>> map = new HashMap<>();
+    public final Map<ResourceKey<Level>, Map<ChunkPos, ClientClaims.Entry>> map = new HashMap<>();
 
     public @Nullable ClientClaims.Entry get(ResourceKey<Level> dimension, int chunkX, int chunkZ) {
         Map<ChunkPos, ClientClaims.Entry> claims = map.get(dimension);
