@@ -1,5 +1,6 @@
 package dev.hjota.dissonance.client.compat.xaero;
 
+import dev.ftb.mods.ftbchunks.client.FTBChunksClientConfig;
 import dev.ftb.mods.ftbteams.api.event.ClientTeamPropertiesChangedEvent;
 import dev.ftb.mods.ftbteams.api.event.TeamEvent;
 import dev.ftb.mods.ftbteams.data.ClientTeamManagerImpl;
@@ -26,6 +27,14 @@ public class XaeroCompat {
 
     public XaeroCompat() {
         TeamEvent.CLIENT_PROPERTIES_CHANGED.register(this::onTeamPropsChanged);
+        disableFTBChunksStuff();
+    }
+
+    private void disableFTBChunksStuff() {
+        // This can be a config
+        FTBChunksClientConfig.DEATH_WAYPOINTS.set(false);
+        FTBChunksClientConfig.MINIMAP_ENABLED.set(false);
+        FTBChunksClientConfig.IN_WORLD_WAYPOINTS.set(false);
     }
 
     private void onTeamPropsChanged(ClientTeamPropertiesChangedEvent event) {
