@@ -2,6 +2,7 @@ package dev.hjota.dissonance.client;
 
 import com.mojang.datafixers.util.Pair;
 
+import dev.ftb.mods.ftbchunks.client.FTBChunksClientConfig;
 import dev.hjota.dissonance.claims.ClaimType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
@@ -19,6 +20,14 @@ public final class ClientClaims {
     private final Map<String, Consumer<Map<ChunkPos, ClientClaims.Entry>>> listeners = new HashMap<>();
 
     public ClientClaims(ResourceKey<Level> dimension) {
+        disableFTBChunksStuff();
+    }
+
+    private void disableFTBChunksStuff() {
+        // This can be a config
+        FTBChunksClientConfig.DEATH_WAYPOINTS.set(false);
+        FTBChunksClientConfig.MINIMAP_ENABLED.set(false);
+        FTBChunksClientConfig.IN_WORLD_WAYPOINTS.set(false);
     }
 
     public void addListener(String id, Consumer<Map<ChunkPos, ClientClaims.Entry>> listener) {
